@@ -27,7 +27,7 @@ const FormBuilder = ({ onSaveForm }) => {
         <input
           type="text"
           className="form-control"
-          placeholder="Field Label"
+          placeholder="Field Text"
           value={fieldLabel}
           onChange={(e) => setFieldLabel(e.target.value)}
         />
