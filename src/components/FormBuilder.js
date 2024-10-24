@@ -38,11 +38,15 @@ const FormBuilder = ({ onSaveForm }) => {
 
       <h3>Form Preview:</h3>
       <ul className="list-group">
-        {formFields.map((field, index) => (
-          <li className="list-group-item" key={index}>
-            {field.label} ({field.type})
-          </li>
-        ))}
+        {formFields.length > 0 ? (
+          formFields.map((field, index) => (
+            <li className="list-group-item" key={index}>
+              {field.label} ({field.type})
+            </li>
+          ))
+        ) : (
+          <p>No prewiew.</p>
+        )}
       </ul>
     </div>
   );
