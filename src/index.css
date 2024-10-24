@@ -1,11 +1,14 @@
-html {
-  filter: invert(1);
-}
-
-h1 {
+.display-4 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2%;
+  color: #FFFFFF;
 }
+
+.overlay-container {
+  background-color: rgb(103, 58, 183);
+  padding: 20px;
+}
+

@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const FormResponse = ({ responses }) => {
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 pb-5">
       <h2>Form Responses</h2>
       {Object.keys(responses).length > 0 ? (
         <ul className="list-group">
           {Object.keys(responses).map((key, index) => (
             <li className="list-group-item" key={index}>
-              <strong>{key}:</strong> {responses[key]}
+              <strong>{key} :</strong> {responses[key]}
             </li>
           ))}
         </ul>

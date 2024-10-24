@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormBuilder from './components/FormBuilder';
 import FormViewer from './components/FormViewer';
 import FormResponse from './components/FormResponse';
+import Header from './components/Header';
 
 const App = () => {
   const [form, setForm] = useState([]);
@@ -17,7 +18,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Google Forms App</h1>
+      <Header/>
       <FormBuilder onSaveForm={handleFormSave} />
       <hr />
       <FormViewer form={form} onSubmit={handleFormSubmit} />

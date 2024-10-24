@@ -3,11 +3,16 @@ import React, { useState } from "react";
 const FormBuilder = ({ onSaveForm }) => {
   const [formFields, setFormFields] = useState([]);
   const [fieldLabel, setFieldLabel] = useState("");
+  const [fieldType, setFieldType] = useState("text");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const addField = () => {
     if (fieldLabel.length !== 0) {
-      setFormFields([...formFields, { type: "text", label: fieldLabel }]);
+      setFormFields([...formFields, { type: fieldType, label: fieldLabel }]);
       setFieldLabel("");
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Field label cannot be empty");
     }
   };
 
@@ -26,6 +31,18 @@ const FormBuilder = ({ onSaveForm }) => {
           value={fieldLabel}
           onChange={(e) => setFieldLabel(e.target.value)}
         />
+        <p className="text-danger mt-2">{errorMessage}</p>
+      </div>
+
+      <div className="mb-3">
+        <select
+          value={fieldType}
+          className="form-select"
+          onChange={(e) => setFieldType(e.target.value)}
+        >
+          <option value="text">Text</option>
+          <option value="number">Number</option>
+        </select>
       </div>
       <div className="mb-3">
         <button className="btn btn-primary me-2" onClick={addField}>
