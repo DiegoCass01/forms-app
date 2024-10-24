@@ -45,7 +45,7 @@ const FormBuilder = ({ onSaveForm }) => {
             </li>
           ))
         ) : (
-          <p>No prewiew.</p>
+          <p>No preview.</p>
         )}
       </ul>
     </div>
