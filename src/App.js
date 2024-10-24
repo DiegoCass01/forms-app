@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import FormBuilder from './components/FormBuilder';
+import FormViewer from './components/FormViewer';
+import FormResponse from './components/FormResponse';
 
-function App() {
+const App = () => {
+  const [form, setForm] = useState([]);
+  const [responses, setResponses] = useState({});
+
+  const handleFormSave = (newForm) => {
+    setForm(newForm);
+  };
+
+  const handleFormSubmit = (formResponses) => {
+    setResponses(formResponses);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Google Forms App</h1>
+      <FormBuilder onSaveForm={handleFormSave} />
+      <hr />
+      <FormViewer form={form} onSubmit={handleFormSubmit} />
+      <hr />
+      <FormResponse responses={responses} />
     </div>
   );
-}
+};
 
 export default App;
