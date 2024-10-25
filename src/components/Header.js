@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <div className="overlay-container">
-      <p className="display-4">Google Forms App</p>
+      <p className="display-4">Forms App</p>
     </div>
   );
 };

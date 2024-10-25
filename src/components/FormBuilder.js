@@ -6,6 +6,7 @@ const FormBuilder = ({ onSaveForm }) => {
   const [fieldType, setFieldType] = useState("text");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //Adding fields
   const addField = () => {
     if (fieldLabel.length !== 0) {
       setFormFields([...formFields, { type: fieldType, label: fieldLabel }]);
@@ -16,10 +17,12 @@ const FormBuilder = ({ onSaveForm }) => {
     }
   };
 
+  //Saving fields
   const saveForm = () => {
     onSaveForm(formFields);
   };
 
+  //Removing fields
   const deleteField = (indexToRemove) => {
     const updatedFields = formFields.filter(
       (_, index) => index !== indexToRemove

@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 const FormViewer = ({ form, onSubmit }) => {
   const [responses, setResponses] = useState({});
 
+  //Updates the responses
   const handleChange = (label, value) => {
     setResponses({ ...responses, [label]: value });
   };
 
+  //Calls the onSubmit function 
   const handleSubmit = () => {
     onSubmit(responses);
   };
