@@ -20,6 +20,13 @@ const FormBuilder = ({ onSaveForm }) => {
     onSaveForm(formFields);
   };
 
+  const deleteField = (indexToRemove) => {
+    const updatedFields = formFields.filter(
+      (_, index) => index !== indexToRemove
+    );
+    setFormFields(updatedFields);
+  };
+
   return (
     <div className="container mt-4">
       <h2>Create a New Form</h2>
@@ -48,23 +55,38 @@ const FormBuilder = ({ onSaveForm }) => {
         <button className="btn btn-primary me-2" onClick={addField}>
           Add Field
         </button>
-        <button className="btn btn-success" onClick={saveForm}>
-          Save Form
-        </button>
       </div>
 
       <h3>Form Preview:</h3>
-      <ul className="list-group">
-        {formFields.length > 0 ? (
-          formFields.map((field, index) => (
-            <li className="list-group-item" key={index}>
-              {field.label} ({field.type})
-            </li>
-          ))
-        ) : (
-          <p>No preview.</p>
-        )}
-      </ul>
+
+      {formFields.length > 0 ? (
+        formFields.map((field, index) => (
+          <ul className="list-group">
+            <div className="mb-3">
+              <li
+                key={index}
+                className="list-group-item d-flex justify-content-between align-items-center"
+              >
+                <span>{field.label}</span>
+                <button
+                  onClick={() => deleteField(index)}
+                  className="btn btn-danger btn-sm"
+                >
+                  X
+                </button>
+              </li>
+            </div>
+
+            <div className="mb-3">
+              <button className="btn btn-success" onClick={saveForm}>
+                Save Form
+              </button>
+            </div>
+          </ul>
+        ))
+      ) : (
+        <p>No preview.</p>
+      )}
     </div>
   );
 };
