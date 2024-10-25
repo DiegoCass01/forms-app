@@ -37,7 +37,7 @@ const FormBuilder = ({ onSaveForm }) => {
       <div className="mb-3">
         <select
           value={fieldType}
-          className="form-select"
+          id="form-select"
           onChange={(e) => setFieldType(e.target.value)}
         >
           <option value="text">Text</option>
