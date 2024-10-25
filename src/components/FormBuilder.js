@@ -60,30 +60,29 @@ const FormBuilder = ({ onSaveForm }) => {
       <h3>Form Preview:</h3>
 
       {formFields.length > 0 ? (
-        formFields.map((field, index) => (
-          <ul className="list-group">
-            <div className="mb-3">
-              <li
-                key={index}
-                className="list-group-item d-flex justify-content-between align-items-center"
-              >
-                <span>{field.label}</span>
-                <button
-                  onClick={() => deleteField(index)}
-                  className="btn btn-danger btn-sm"
+        <form onSubmit={(e) => e.preventDefault()}>
+          {formFields.map((field, index) => (
+            <ul className="list-group">
+              <div className="mb-3">
+                <li
+                  key={index}
+                  className="list-group-item d-flex justify-content-between align-items-center"
                 >
-                  X
-                </button>
-              </li>
-            </div>
-
-            <div className="mb-3">
-              <button className="btn btn-success" onClick={saveForm}>
-                Save Form
-              </button>
-            </div>
-          </ul>
-        ))
+                  <span>{field.label}</span>
+                  <button
+                    onClick={() => deleteField(index)}
+                    className="btn btn-danger btn-sm"
+                  >
+                    X
+                  </button>
+                </li>
+              </div>
+            </ul>
+          ))}
+          <button className="btn btn-success" onClick={saveForm}>
+            Save Form
+          </button>
+        </form>
       ) : (
         <p>No preview.</p>
       )}
