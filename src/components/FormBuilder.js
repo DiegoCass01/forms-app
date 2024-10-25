@@ -9,7 +9,7 @@ const FormBuilder = ({ onSaveForm }) => {
   //Adding fields
   const addField = () => {
     if (fieldLabel.length !== 0) {
-      setFormFields([...formFields, { type: fieldType, label: fieldLabel }]);
+      setFormFields([...formFields, { type: "text", label: fieldLabel }]);
       setFieldLabel("");
       setErrorMessage("");
     } else {
@@ -28,7 +28,7 @@ const FormBuilder = ({ onSaveForm }) => {
       (_, index) => index !== indexToRemove
     );
     setFormFields(updatedFields);
-    onSaveForm(updatedFields)
+    onSaveForm(updatedFields);
   };
 
   return (
@@ -43,17 +43,6 @@ const FormBuilder = ({ onSaveForm }) => {
           onChange={(e) => setFieldLabel(e.target.value)}
         />
         <p className="text-danger mt-2">{errorMessage}</p>
-      </div>
-
-      <div className="mb-3">
-        <select
-          value={fieldType}
-          className="form-select"
-          onChange={(e) => setFieldType(e.target.value)}
-        >
-          <option value="text">Text</option>
-          <option value="number">Number</option>
-        </select>
       </div>
       <div className="mb-3">
         <button className="btn btn-primary me-2" onClick={addField}>
