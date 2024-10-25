@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const FormBuilder = ({ onSaveForm }) => {
   const [formFields, setFormFields] = useState([]);
   const [fieldLabel, setFieldLabel] = useState("");
-  const [fieldType, setFieldType] = useState("text");
   const [errorMessage, setErrorMessage] = useState("");
 
   //Adding fields
