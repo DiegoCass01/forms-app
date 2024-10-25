@@ -28,6 +28,7 @@ const FormBuilder = ({ onSaveForm }) => {
       (_, index) => index !== indexToRemove
     );
     setFormFields(updatedFields);
+    onSaveForm(updatedFields)
   };
 
   return (
