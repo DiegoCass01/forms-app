@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="overlay-container">
+    <header className="overlay-container">
       <p className="display-4">Forms App</p>
-    </div>
+    </header>
   );
 };
 
